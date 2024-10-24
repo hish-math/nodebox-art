@@ -4,6 +4,7 @@ I love art, geometry and coding. [Nodebox 3](https://www.nodebox.net/node/) comb
 
 ## Showcase
 
-| Project                  | Code Link                           | Preview                                      |
-| ------------------------ | ----------------------------------- | -------------------------------------------- |
-| Honeycomb/Hexagonal Grid | [.ndbx](static/honeycomb-grid.ndbx) | ![Honeycomb Grid](assets/honeycomb-grid.png) |
+| Project                  | Code Link                             | Preview                                      |
+| ------------------------ | ------------------------------------- | -------------------------------------------- |
+| Honeycomb/Hexagonal Grid | [.ndbx](static/honeycomb-grid.ndbx)   | ![Honeycomb Grid](assets/honeycomb-grid.png) |
+| Eyes Blinking            | [.ndbx](animation/eyes-blinking.ndbx) | ![Eyes Blinking](assets/eyes-blinking.gif)   |

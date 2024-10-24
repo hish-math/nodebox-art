@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="92d5d0ac-1287-49d2-969e-3687274d7d0c">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="compound2">
+        <node name="compound1" position="-1.00,3.00" prototype="corevector.compound">
+            <port name="function" type="string" value="subtracted"/>
+            <port name="invert_difference" type="boolean" value="true"/>
+        </node>
+        <node name="compound2" position="1.00,8.00" prototype="corevector.compound">
+            <port name="function" type="string" value="subtracted"/>
+            <port name="invert_difference" type="boolean" value="true"/>
+        </node>
+        <node name="copy1" position="-1.00,5.00" prototype="corevector.copy">
+            <port name="copies" type="int" value="2"/>
+            <port name="translate" type="point" value="150.00,0.00"/>
+        </node>
+        <node name="ellipse1" position="-1.00,1.00" prototype="corevector.ellipse">
+            <port name="width" type="float" value="50.0"/>
+            <port name="height" type="float" value="50.0"/>
+        </node>
+        <node name="frame1" position="3.00,-2.00" prototype="core.frame"/>
+        <node name="group1" position="-1.00,6.00" prototype="corevector.group"/>
+        <node name="mod1" position="3.00,-1.00" prototype="math.mod">
+            <port name="value2" type="float" value="50.0"/>
+        </node>
+        <node name="quad_curve1" position="3.00,0.00" prototype="corevector.quad_curve">
+            <port name="point1" type="point" value="-50.00,0.00"/>
+            <port name="point2" type="point" value="50.00,0.00"/>
+        </node>
+        <node name="rect1" position="3.00,6.00" prototype="corevector.rect">
+            <port name="width" type="float" value="422.0"/>
+            <port name="height" type="float" value="150.0"/>
+        </node>
+        <node name="reflect1" position="3.00,1.00" prototype="corevector.reflect">
+            <port name="angle" type="float" value="180.0"/>
+        </node>
+        <node name="translate1" position="-1.00,4.00" prototype="corevector.translate">
+            <port name="translate" type="point" value="-75.00,0.00"/>
+        </node>
+        <conn input="reflect1.shape" output="quad_curve1"/>
+        <conn input="mod1.value1" output="frame1"/>
+        <conn input="quad_curve1.distance" output="mod1"/>
+        <conn input="translate1.shape" output="compound1"/>
+        <conn input="copy1.shape" output="translate1"/>
+        <conn input="compound1.shape1" output="ellipse1"/>
+        <conn input="compound1.shape2" output="reflect1"/>
+        <conn input="group1.shapes" output="copy1"/>
+        <conn input="compound2.shape2" output="rect1"/>
+        <conn input="compound2.shape1" output="group1"/>
+    </node>
+</ndbx>
