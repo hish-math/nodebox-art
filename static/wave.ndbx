@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="4c34ece5-1c18-43c3-a580-aad4d9fac045">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="scale1">
+        <node name="make_point1" position="7.00,4.00" prototype="corevector.make_point"/>
+        <node name="radians1" position="7.00,2.00" prototype="math.radians"/>
+        <node name="range1" position="7.00,0.00" prototype="math.range">
+            <port name="end" type="float" value="360.0"/>
+        </node>
+        <node name="scale1" position="7.00,6.00" prototype="corevector.scale"/>
+        <node name="scale_factor" position="12.00,4.00" prototype="math.number">
+            <port name="value" type="float" value="5000.0"/>
+        </node>
+        <node name="wave1" position="10.00,2.00" prototype="math.wave">
+            <port name="min" type="float" value="-1.0"/>
+            <port name="max" type="float" value="1.0"/>
+            <port name="period" type="float" value="360.0"/>
+        </node>
+        <conn input="wave1.offset" output="range1"/>
+        <conn input="radians1.degrees" output="range1"/>
+        <conn input="make_point1.x" output="radians1"/>
+        <conn input="make_point1.y" output="wave1"/>
+        <conn input="scale1.shape" output="make_point1"/>
+        <conn input="scale1.scale" output="scale_factor"/>
+    </node>
+</ndbx>
