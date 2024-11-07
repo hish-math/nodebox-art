@@ -11,6 +11,9 @@
             <node name="amplitude" position="9.00,6.00" prototype="math.number">
                 <port name="value" type="float" value="1.0"/>
             </node>
+            <node name="divide1" position="6.00,-2.00" prototype="math.divide">
+                <port name="value1" type="float" value="1.0"/>
+            </node>
             <node name="horizontal_shift" position="9.00,2.00" prototype="math.number"/>
             <node name="make_point1" position="3.00,12.00" prototype="corevector.make_point"/>
             <node name="multiply1" position="6.00,2.00" prototype="math.multiply"/>
@@ -21,6 +24,7 @@
             <node name="radians1" position="3.00,4.00" prototype="math.radians"/>
             <node name="range1" position="3.00,0.00" prototype="math.range">
                 <port name="end" type="float" value="360.0"/>
+                <port name="step" type="float" value="0.30000001192092896"/>
             </node>
             <node name="scale1" position="3.00,14.00" prototype="corevector.scale"/>
             <node name="scale_factor" position="8.00,12.00" prototype="math.number">
@@ -36,6 +40,7 @@
             <port childReference="amplitude.value" description="" label="" name="Amplitude" range="value" type="float" value="1.0" widget="float"/>
             <port childReference="horizontal_shift.value" description="" label="" name="Horizontal Shift" range="value" type="float" value="0.0" widget="float"/>
             <port childReference="period.value" description="" label="" name="Period" range="value" type="float" value="1.0" widget="float"/>
+            <port childReference="divide1.value2" description="" label="" min="1.0" name="Point Density" range="value" type="float" value="1.0" widget="float"/>
             <conn input="radians1.degrees" output="range1"/>
             <conn input="make_point1.x" output="radians1"/>
             <conn input="scale1.shape" output="make_point1"/>
@@ -50,6 +55,7 @@
             <conn input="add1.value1" output="multiply1"/>
             <conn input="wave1.offset" output="add1"/>
             <conn input="multiply2.value1" output="wave1"/>
+            <conn input="range1.step" output="divide1"/>
         </node>
     </node>
 </ndbx>
