@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="29512519-604f-4472-a3f1-d7062b808b4e">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="scale2">
+        <node name="adapt" position="13.00,4.00" prototype="corevector.text_on_path">
+            <port name="text" type="string" value="adapt"/>
+            <port name="font_size" type="float" value="25.0"/>
+            <port name="alignment" type="string" value="trailing"/>
+            <port name="margin" type="float" value="45.0"/>
+            <port name="baseline_offset" type="float" value="-19.0"/>
+        </node>
+        <node name="colorize1" position="7.00,5.00" prototype="corevector.colorize">
+            <port name="fill" type="color" value="#0ecc00ff"/>
+        </node>
+        <node name="colorize2" position="10.00,5.00" prototype="corevector.colorize">
+            <port name="fill" type="color" value="#c86000ff"/>
+        </node>
+        <node name="colorize3" position="13.00,5.00" prototype="corevector.colorize">
+            <port name="fill" type="color" value="#cc1400ff"/>
+        </node>
+        <node name="colorize4" position="5.00,1.00" prototype="corevector.colorize">
+            <port name="fill" type="color" value="#3b0000ff"/>
+        </node>
+        <node name="combine1" position="7.00,7.00" prototype="list.combine"/>
+        <node name="do" position="7.00,4.00" prototype="corevector.text_on_path">
+            <port name="text" type="string" value="do"/>
+            <port name="font_size" type="float" value="25.0"/>
+            <port name="margin" type="float" value="35.0"/>
+            <port name="baseline_offset" type="float" value="-20.0"/>
+        </node>
+        <node name="observe" position="10.00,4.00" prototype="corevector.text_on_path">
+            <port name="text" type="string" value="observe"/>
+            <port name="font_size" type="float" value="25.0"/>
+            <port name="margin" type="float" value="70.0"/>
+            <port name="baseline_offset" type="float" value="-17.0"/>
+        </node>
+        <node name="scale1" position="5.00,2.00" prototype="corevector.scale">
+            <port name="scale" type="point" value="1000.00,1000.00"/>
+        </node>
+        <node name="scale2" position="7.00,8.00" prototype="corevector.scale">
+            <port name="scale" type="point" value="200.00,200.00"/>
+        </node>
+        <node name="textpath2" position="5.00,0.00" prototype="corevector.textpath">
+            <port name="text" type="string" value="∞"/>
+        </node>
+        <conn input="combine1.list1" output="scale1"/>
+        <conn input="combine1.list2" output="colorize1"/>
+        <conn input="combine1.list3" output="colorize2"/>
+        <conn input="combine1.list4" output="colorize3"/>
+        <conn input="colorize1.shape" output="do"/>
+        <conn input="do.path" output="scale1"/>
+        <conn input="colorize3.shape" output="adapt"/>
+        <conn input="adapt.path" output="scale1"/>
+        <conn input="colorize2.shape" output="observe"/>
+        <conn input="observe.path" output="scale1"/>
+        <conn input="scale2.shape" output="combine1"/>
+        <conn input="colorize4.shape" output="textpath2"/>
+        <conn input="scale1.shape" output="colorize4"/>
+    </node>
+</ndbx>
